@@ -1,6 +1,7 @@
 package com.israelgda.sistemacomprasapi.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario implements UserDetails {
@@ -30,6 +32,9 @@ public class Usuario implements UserDetails {
                 joinColumns = @JoinColumn(name = "usuario_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    public Usuario(){
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

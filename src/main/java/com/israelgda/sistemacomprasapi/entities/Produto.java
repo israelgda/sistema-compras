@@ -1,6 +1,7 @@
 package com.israelgda.sistemacomprasapi.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_produtos")
 public class Produto {
@@ -31,4 +33,7 @@ public class Produto {
                 joinColumns = @JoinColumn(name = "produto_id"),
                 inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     private Set<Categoria> categorias = new HashSet<>();
+
+    public Produto() {
+    }
 }

@@ -2,12 +2,14 @@ package com.israelgda.sistemacomprasapi.entities;
 
 import com.israelgda.sistemacomprasapi.entities.enums.TipoDesconto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_descontos")
 public class Desconto {
@@ -26,4 +28,6 @@ public class Desconto {
         return TipoDesconto.valueOf(tipo);
     }
 
+    public Desconto() {
+    }
 }
