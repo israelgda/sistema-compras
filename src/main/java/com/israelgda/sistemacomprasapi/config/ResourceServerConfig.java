@@ -33,7 +33,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
 
         if(Arrays.asList(environment.getActiveProfiles()).contains("test")) {
-            http.headers().frameOptions().disable();
+            http.csrf().disable();
+            http.headers().frameOptions().sameOrigin();
         }
 
         http.authorizeRequests()
@@ -42,5 +43,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(USER_ROUTES).hasAnyRole("USUARIO", "ADMIN")
                 .antMatchers(ADMIN_ROUTES).hasAnyRole("ADMIN")
                 .anyRequest().authenticated();
+
+        http.headers().frameOptions().sameOrigin();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }
