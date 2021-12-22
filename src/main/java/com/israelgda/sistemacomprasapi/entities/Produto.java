@@ -25,9 +25,6 @@ public class Produto {
 
     private Double valor;
 
-    @OneToOne
-    private Desconto desconto;
-
     @ManyToMany
     @JoinTable(name = "tb_produtos_categorias",
                 joinColumns = @JoinColumn(name = "produto_id"),
