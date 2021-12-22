@@ -19,10 +19,11 @@ public class Desconto {
     private Long id;
 
     private Integer tipo;
+    private Boolean cumulativo;
     private Double valor;
 
     @OneToOne
-    private Produto produto;
+    private Categoria categoria;
 
     public TipoDesconto getTipo(){
         return TipoDesconto.valueOf(tipo);
