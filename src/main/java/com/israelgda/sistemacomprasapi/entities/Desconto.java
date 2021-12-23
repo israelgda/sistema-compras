@@ -23,6 +23,7 @@ public class Desconto {
     private Double valor;
 
     @OneToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public TipoDesconto getTipo(){

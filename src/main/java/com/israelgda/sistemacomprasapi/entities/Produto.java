@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -25,11 +23,9 @@ public class Produto {
 
     private Double valor;
 
-    @ManyToMany
-    @JoinTable(name = "tb_produtos_categorias",
-                joinColumns = @JoinColumn(name = "produto_id"),
-                inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-    private Set<Categoria> categorias = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
     public Produto() {
     }

@@ -5,8 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,10 +22,10 @@ public class Categoria {
     @Column(unique = true)
     private String nome;
 
-    @ManyToMany(mappedBy = "categorias")
-    private Set<Produto> produtos = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria")
+    private List<Produto> produtos = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(mappedBy = "categoria")
     private Desconto desconto;
 
     public Categoria() {
