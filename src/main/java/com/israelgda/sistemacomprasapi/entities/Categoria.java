@@ -26,8 +26,13 @@ public class Categoria {
     private List<Produto> produtos = new ArrayList<>();
 
     @OneToOne(mappedBy = "categoria")
-    private Desconto desconto;
+    private DescontoCategoria desconto;
 
     public Categoria() {
+    }
+
+    public Categoria(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
     }
 }
