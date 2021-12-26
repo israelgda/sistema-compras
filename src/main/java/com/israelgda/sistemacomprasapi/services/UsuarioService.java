@@ -1,4 +1,4 @@
-package com.israelgda.sistemacomprasapi.service;
+package com.israelgda.sistemacomprasapi.services;
 
 import com.israelgda.sistemacomprasapi.entities.Usuario;
 import com.israelgda.sistemacomprasapi.repositories.RoleRepository;
